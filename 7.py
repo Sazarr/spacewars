@@ -23,3 +23,13 @@ def to_camel_case(text):
 # Example usage
 print(to_camel_case("the-stealth-warrior"))  # Output: theStealthWarrior
 print(to_camel_case("The_Stealth_Warrior"))  # Output: TheStealthWarrior
+
+def generate_hashtag(s):
+    phrase = s.strip().split()
+    if not s:
+        return 'false'
+    first_s = s[0]
+    hashtag_text = "#" + ''.join(s.capitalise() for s in s[1:])
+    if len(hashtag_text) > 140:
+        return False
+    return hashtag_text
