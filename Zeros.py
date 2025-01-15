@@ -13,3 +13,5 @@ def move_zeros(array):
             array.remove(i) # Remove the element from the array
             array.append(i) # Append the element to the end
     return array
+
+
