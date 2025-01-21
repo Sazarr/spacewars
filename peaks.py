@@ -17,3 +17,6 @@ def pick_peaks(arr):
                 peaks["peaks"].append(arr[i])
 
     return peaks
+
+
+
