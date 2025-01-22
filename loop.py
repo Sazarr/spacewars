@@ -29,3 +29,5 @@ def loop_size(node):
         current = current.next
 
     return loop_count
+
+
