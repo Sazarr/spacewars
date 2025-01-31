@@ -43,3 +43,6 @@ digits = {
 }
 def last_digit(n1, n2):
     return digits[n1%10][(n2-1)%4] if n2 else 1
+
+
+
