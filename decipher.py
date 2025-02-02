@@ -37,3 +37,14 @@ def solve_runes(expression: str) -> int:
             return int(digit)  # Return the first (smallest) valid digit
 
     return -1  # If no valid digit found
+
+
+
+
+
+
+
+
+
+
+
