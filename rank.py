@@ -11,6 +11,8 @@ class User:
         """Convert index back to the ranking system."""
         return index - 8 if index < 8 else index - 7
 
+
+
     def inc_progress(self, activity_rank):
         if activity_rank == 0 or activity_rank < -8 or activity_rank > 8:
             raise ValueError("Invalid rank value")
@@ -28,6 +30,9 @@ class User:
             self.progress += 10 * diff * diff
 
         self.update_rank()
+
+
+
 
     def update_rank(self):
         while self.progress >= 100 and self.rank < 8:
