@@ -28,3 +28,16 @@
         if self.rank == 8:
             self.progress = 0  # Cap progress at rank 8
 
+class User:
+    def __init__(self):
+        self.rank = -8
+        self.progress = 0
+
+    def rank_to_index(self, rank):
+        """Convert rank to a continuous index for easier calculations."""
+        return rank + 8 if rank < 0 else rank + 7
+
+    def index_to_rank(self, index):
+        """Convert index back to the ranking system."""
+        return index - 8 if index < 8 else index - 7
+
