@@ -1,17 +1,3 @@
-class User:
-    def __init__(self):
-        self.rank = -8
-        self.progress = 0
-
-    def rank_to_index(self, rank):
-        """Convert rank to a continuous index for easier calculations."""
-        return rank + 8 if rank < 0 else rank + 7
-
-    def index_to_rank(self, index):
-        """Convert index back to the ranking system."""
-        return index - 8 if index < 8 else index - 7
-
-
 
     def inc_progress(self, activity_rank):
         if activity_rank == 0 or activity_rank < -8 or activity_rank > 8:
