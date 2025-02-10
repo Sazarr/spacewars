@@ -1,9 +1,7 @@
 from collections import deque
-
-
 def knight(start, end):
     if start == end:
-        return 0  # No moves needed if the positions are the same
+        return 0
 
     # Convert algebraic notation to numerical coordinates (0-based)
     def algebraic_to_numeric(pos):
@@ -30,15 +28,14 @@ def knight(start, end):
             nx, ny = x + dx, y + dy
 
             if (nx, ny) == (end_x, end_y):
-                return moves_count + 1  # Found the shortest path
+                return moves_count + 1
 
             # Stay within the board and avoid revisiting positions
             if 0 <= nx < 8 and 0 <= ny < 8 and (nx, ny) not in visited:
                 queue.append((nx, ny, moves_count + 1))
                 visited.add((nx, ny))
 
-    return -1  # This should never happen on a valid 8x8 board
-
+    return -1
 
 def knight(p1, p2):
     a, b = [('abcdefgh'.index(p[0]), int(p[1])) for p in [p1, p2]]
