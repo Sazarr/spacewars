@@ -31,9 +31,6 @@ class User:
 
         self.update_rank()
 
-
-
-
     def update_rank(self):
         while self.progress >= 100 and self.rank < 8:
             self.progress -= 100
