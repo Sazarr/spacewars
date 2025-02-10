@@ -4,11 +4,11 @@ class User:
         self.progress = 0
 
     def rank_to_index(self, rank):
-        """Convert rank to a continuous index for easier calculations."""
+
         return rank + 8 if rank < 0 else rank + 7
 
     def index_to_rank(self, index):
-        """Convert index back to the ranking system."""
+
         return index - 8 if index < 8 else index - 7
 
 
@@ -31,11 +31,12 @@ class User:
 
         self.update_rank()
 
+
     def update_rank(self):
         while self.progress >= 100 and self.rank < 8:
             self.progress -= 100
             self.rank = self.index_to_rank(self.rank_to_index(self.rank) + 1)
 
         if self.rank == 8:
-            self.progress = 0  # Cap progress at rank 8
+            self.progress = 0
 
