@@ -22,7 +22,4 @@ def is_valid_sudoku(grid):
                     sub_grid.add(grid[r][c])
             if sub_grid != expected_set:
                 return False
-
-
-
     return True
