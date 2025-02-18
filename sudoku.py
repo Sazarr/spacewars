@@ -7,7 +7,6 @@ def is_valid_sudoku(grid):
 
     expected_set = set(range(1, N + 1))
 
-# Check rows and columns
     for i in range(N):
     if set(grid[i]) != expected_set:
         return False  # Row check
