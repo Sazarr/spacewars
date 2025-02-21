@@ -31,6 +31,9 @@ def is_interesting(number, awesome_phrases):
     return 0
 
 
+
+
+
 def is_good(n, awesome):
     return n in awesome or str(n) in "1234567890 9876543210" or str(n) == str(n)[::-1] or int(str(n)[1:]) == 0
 
