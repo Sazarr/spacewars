@@ -47,3 +47,45 @@ def top_3_words(text):
 ["me'jfis", 'laudfweizh', "vyv'pcvxy"]
 ["me'jfis'", 'laudfweizh', "vyv'pcvxy"]
 
+function
+topThreeWords(text)
+{
+// Convert
+to
+lowercase and replace
+any
+character
+that
+'s not a letter or apostrophe with a space
+const
+cleanedText = text.toLowerCase().replace( / [ ^ a - z
+'\s]/g, ' ');
+
+// Create
+a
+regex
+that
+matches
+words
+with at least one letter
+const wordRegex = /[a-z]+['a-z]*/g;
+
+// Find all valid words in the text
+const words = cleanedText.match(wordRegex) | |[];
+
+// Count word frequencies
+const wordCounts = {};
+for (const word of words) {
+if (word) {
+wordCounts[word] = (wordCounts[word] | | 0) + 1;
+}
+}
+
+// Sort words by frequency and
+return top
+3
+return Object.entries(wordCounts)
+.sort((a, b) = > b[1] - a[1])
+.slice(0, 3)
+.map(entry= > entry[0]);
+}
