@@ -3,7 +3,7 @@ from collections import Counter
 
 def top_3_words(text):
     # Find words with optional apostrophes using regex
-    words = re.findall(r"[a-zA-Z]+'?[a-zA-Z]*", text.lower())
+    words = re.findall(r"[a-zA-Z]+':?[a-zA-Z]*", text.lower())
 
     # Count occurrences
     word_counts = Counter(words)
