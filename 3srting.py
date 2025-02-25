@@ -43,10 +43,6 @@ def top_3_words(text):
 
     return [word for word, _ in word_counts.most_common(3)]
 
-
-["me'jfis", 'laudfweizh', "vyv'pcvxy"]
-["me'jfis'", 'laudfweizh', "vyv'pcvxy"]
-
 import re
 from collections import Counter
 
