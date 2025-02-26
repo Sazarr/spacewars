@@ -1,16 +1,4 @@
 def sum_intervals(intervals):
-    """
-    Calculate the sum of interval lengths, counting overlapping intervals only once.
-
-    Args:
-        intervals: List of intervals, where each interval is a list [start, end]
-
-    Returns:
-        The sum of the lengths of all intervals, counting overlapping intervals only once
-    """
-    if not intervals:
-        return 0
-
     # Sort intervals by their start value
     sorted_intervals = sorted(intervals)
 
