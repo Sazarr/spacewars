@@ -20,3 +20,26 @@ def sum_intervals(intervals):
     total_length = sum(end - start for start, end in merged)
 
     return total_length
+
+
+def sum_intervals(intervals):
+    if not intervals:
+        return 0  # Edge case: Empty list
+
+    # Sort intervals by the start value
+    intervals.sort()
+
+    total_length = 0
+    start, end = intervals[0]  # Initialize with the first interval
+
+    for s, e in intervals[1:]:
+        if s <= end:  # Overlapping interval, merge it
+            end = max(end, e)
+        else:  # Non-overlapping, count previous and move to the new one
+            total_length += end - start
+            start, end = s, e
+
+    # Add the last interval
+    total_length += end - start
+
+    return total_length
