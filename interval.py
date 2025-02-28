@@ -5,6 +5,8 @@ def sum_intervals(intervals):
     # Initialize with the first interval
     merged = [sorted_intervals[0]]
 
+
+
     for current in sorted_intervals[1:]:
         # Get the last merged interval
         previous = merged[-1]
