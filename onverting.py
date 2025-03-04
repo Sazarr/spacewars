@@ -34,3 +34,46 @@ def prod(iterable):
     for x in iterable:
         result *= x
     return result
+
+
+from math import factorial
+from collections import Counter
+
+
+def get_word_rank(word):
+    # Create a frequency counter of letters in the word
+    letter_counts = Counter(word)
+
+    # Precalculate factorial for used letters
+    def multiset_permutation_count(counts):
+        # Calculate the denominator for repeated letters
+        denominator = 1
+        for count in counts.values():
+            denominator *= factorial(count)
+        return denominator
+
+    # Calculate rank
+    rank = 1
+    length = len(word)
+
+    for i in range(length):
+        # Count smaller letters that could appear at this position
+        for c in sorted(set(word[i:])):
+            if c < word[i]:
+                # Create a temporary letter counter
+                temp_counts = letter_counts.copy()
+                temp_counts[c] -= 1
+
+                # Calculate permutations for this prefix
+                current_perms = factorial(length - i - 1)
+
+                # Adjust for letter frequencies
+                current_perms //= multiset_permutation_count(temp_counts)
+
+                # Add to rank
+                rank += current_perms
+
+        # Reduce count of current letter
+        letter_counts[word[i]] -= 1
+
+    return rank
