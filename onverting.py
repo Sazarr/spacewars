@@ -77,3 +77,7 @@ def get_word_rank(word):
         letter_counts[word[i]] -= 1
 
     return rank
+
+
+
+
