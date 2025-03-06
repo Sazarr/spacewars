@@ -73,9 +73,6 @@ def get_word_rank(word):
                 # Add to rank
                 rank += current_perms
 
-
-
-        # Reduce count of current letter
         letter_counts[word[i]] -= 1
 
     return rank
