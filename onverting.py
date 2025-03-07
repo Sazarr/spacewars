@@ -60,25 +60,17 @@ def get_word_rank(word):
         # Count smaller letters that could appear at this position
         for c in sorted(set(word[i:])):
             if c < word[i]:
-                # Create a temporary letter counter
                 temp_counts = letter_counts.copy()
                 temp_counts[c] -= 1
 
-                # Calculate permutations for this prefix
                 current_perms = factorial(length - i - 1)
 
-                # Adjust for letter frequencies
                 current_perms //= multiset_permutation_count(temp_counts)
 
-                # Add to rank
                 rank += current_perms
 
         letter_counts[word[i]] -= 1
-
-
-
-
-    return rank
+ rank
 
 
 
