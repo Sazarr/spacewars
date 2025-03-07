@@ -57,7 +57,6 @@ def get_word_rank(word):
     length = len(word)
 
     for i in range(length):
-        # Count smaller letters that could appear at this position
         for c in sorted(set(word[i:])):
             if c < word[i]:
                 temp_counts = letter_counts.copy()
