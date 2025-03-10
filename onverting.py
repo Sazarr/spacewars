@@ -21,7 +21,6 @@ def rank_word(word):
         letter_counts[letter] -= 1
         if letter_counts[letter] == 0:
             sorted_letters.remove(letter)
-
     return rank
 
 def prod_factorials(counter):
