@@ -70,9 +70,52 @@ def get_word_rank(word):
         letter_counts[word[i]] -= 1
  rank
 
+from math import factorial
+from collections import Counter
 
 
+def get_word_rank(word):
+    # Create a frequency counter of letters in the word
+    letter_counts = Counter(word)
 
+    # Helper function to calculate permutations with repeats
+    def calculate_permutations_with_repeats(total_length, counts):
+        # Calculate total permutations
+        perms = factorial(total_length)
+        # Divide by factorial of each repeated letter count
+        for count in counts.values():
+            if count > 1:
+                perms //= factorial(count)
+        return perms
 
+    # Calculate rank
+    rank = 1
+    length = len(word)
+
+    for i in range(length):
+        current_letter = word[i]
+
+        # Count smaller letters that could appear at this position
+        for c in sorted(letter_counts.keys()):
+            if c < current_letter and letter_counts[c] > 0:
+                # Temporarily reduce the count of this letter
+                letter_counts[c] -= 1
+
+                # Calculate permutations with this letter at current position
+                remaining_length = length - i - 1
+                perms = calculate_permutations_with_repeats(remaining_length, letter_counts)
+
+                # Add to rank
+                rank += perms
+
+                # Restore the count
+                letter_counts[c] += 1
+
+        # Move to next position by reducing count of current letter
+        letter_counts[current_letter] -= 1
+        if letter_counts[current_letter] == 0:
+            del letter_counts[current_letter]
+
+    return rank
 
 
