@@ -25,7 +25,6 @@ def fib(n):
         # Calculate [F(n//2), F(n//2 + 1)]
         a, b = fibonacci_pair(n // 2)
 
-        # Use these identities:
         # F(2k) = F(k) * (2*F(k+1) - F(k))
         # F(2k+1) = F(k+1)^2 + F(k)^2
         c = a * ((b << 1) - a)
@@ -37,3 +36,5 @@ def fib(n):
             return (d, c + d)
 
     return fibonacci_pair(n)[0]
+
+
