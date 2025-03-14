@@ -79,3 +79,55 @@ def fib(n):
 
     return fibonacci_pair(n)[0]
 
+
+def fib(n):
+    """
+    Calculate the nth Fibonacci number using matrix exponentiation.
+    Handles all values of n including negative.
+    """
+    if n == 0:
+        return 0
+
+    # Handle negative indices using the property:
+    # F(-n) = (-1)^(n+1) * F(n)
+    negative = n < 0
+    n = abs(n)
+
+    # Matrix exponentiation approach for F(n)
+    def matrix_power(matrix, power):
+        # Initialize result as identity matrix
+        result = [[1, 0], [0, 1]]
+
+        # Binary exponentiation
+        while power > 0:
+            if power & 1:  # power % 2 == 1
+                result = matrix_multiply(result, matrix)
+            matrix = matrix_multiply(matrix, matrix)
+            power >>= 1  # power //= 2
+
+        return result
+
+    def matrix_multiply(A, B):
+        C = [[0, 0], [0, 0]]
+        C[0][0] = A[0][0] * B[0][0] + A[0][1] * B[1][0]
+        C[0][1] = A[0][0] * B[0][1] + A[0][1] * B[1][1]
+        C[1][0] = A[1][0] * B[0][0] + A[1][1] * B[1][0]
+        C[1][1] = A[1][0] * B[0][1] + A[1][1] * B[1][1]
+        return C
+
+    # Base matrix [[1,1],[1,0]]
+    F = [[1, 1], [1, 0]]
+
+    # Get F^n
+    if n == 1:
+        result = 1
+    else:
+        result = matrix_power(F, n - 1)[0][0]
+
+    # Apply sign adjustment for negative indices
+    if negative:
+        # F(-n) = (-1)^(n+1) * F(n)
+        if n % 2 == 0:
+            result = -result
+
+    return result
