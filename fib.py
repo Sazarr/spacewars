@@ -131,3 +131,32 @@ def fib(n):
             result = -result
 
     return result
+
+def fib(n):
+    if n == 0:
+        return 0
+    elif n < 0:
+        return -fib(-n) if n % 2 == 0 else fib(-n)  # Handle negative index with (-1)^(n+1)
+
+    def mat_mult(A, B):
+        """Multiplies two 2x2 matrices."""
+        return [[A[0][0] * B[0][0] + A[0][1] * B[1][0], A[0][0] * B[0][1] + A[0][1] * B[1][1]],
+                [A[1][0] * B[0][0] + A[1][1] * B[1][0], A[1][0] * B[0][1] + A[1][1] * B[1][1]]]
+
+    def mat_pow(matrix, exp):
+        """Performs fast matrix exponentiation."""
+        result = [[1, 0], [0, 1]]  # Identity matrix
+        base = matrix
+
+        while exp:
+            if exp % 2:
+                result = mat_mult(result, base)
+            base = mat_mult(base, base)
+            exp //= 2
+
+        return result
+
+    F = [[1, 1], [1, 0]]  # Fibonacci transformation matrix
+    result = mat_pow(F, n - 1)
+    return result[0][0]  # Fib(n) is stored at position (0,0) in the result matrix
+
