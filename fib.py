@@ -114,17 +114,13 @@ def fib(n):
         C[1][0] = A[1][0] * B[0][0] + A[1][1] * B[1][0]
         C[1][1] = A[1][0] * B[0][1] + A[1][1] * B[1][1]
         return C
-
-    # Base matrix [[1,1],[1,0]]
     F = [[1, 1], [1, 0]]
 
-    # Get F^n
     if n == 1:
         result = 1
     else:
         result = matrix_power(F, n - 1)[0][0]
 
-    # Apply sign adjustment for negative indices
     if negative:
 
         if n % 2 == 0:
