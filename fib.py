@@ -126,7 +126,7 @@ def fib(n):
 
     # Apply sign adjustment for negative indices
     if negative:
-        # F(-n) = (-1)^(n+1) * F(n)
+
         if n % 2 == 0:
             result = -result
 
@@ -136,7 +136,7 @@ def fib(n):
     if n == 0:
         return 0
     elif n < 0:
-        return -fib(-n) if n % 2 == 0 else fib(-n)  # Handle negative index with (-1)^(n+1)
+        return -fib(-n) if n % 2 == 0 else fib(-n)
 
     def mat_mult(A, B):
         """Multiplies two 2x2 matrices."""
