@@ -93,14 +93,14 @@ def fib(n):
     negative = n < 0
     n = abs(n)
 
-    # Matrix exponentiation approach for F(n)
+
     def matrix_power(matrix, power):
         # Initialize result as identity matrix
         result = [[1, 0], [0, 1]]
 
-        # Binary exponentiation
+
         while power > 0:
-            if power & 1:  # power % 2 == 1
+            if power & 1:
                 result = matrix_multiply(result, matrix)
             matrix = matrix_multiply(matrix, matrix)
             power >>= 1  # power //= 2
@@ -135,13 +135,11 @@ def fib(n):
         return -fib(-n) if n % 2 == 0 else fib(-n)
 
     def mat_mult(A, B):
-        """Multiplies two 2x2 matrices."""
         return [[A[0][0] * B[0][0] + A[0][1] * B[1][0], A[0][0] * B[0][1] + A[0][1] * B[1][1]],
                 [A[1][0] * B[0][0] + A[1][1] * B[1][0], A[1][0] * B[0][1] + A[1][1] * B[1][1]]]
 
     def mat_pow(matrix, exp):
-        """Performs fast matrix exponentiation."""
-        result = [[1, 0], [0, 1]]  # Identity matrix
+        result = [[1, 0], [0, 1]]
         base = matrix
 
         while exp:
@@ -152,7 +150,7 @@ def fib(n):
 
         return result
 
-    F = [[1, 1], [1, 0]]  # Fibonacci transformation matrix
+    F = [[1, 1], [1, 0]]
     result = mat_pow(F, n - 1)
-    return result[0][0]  # Fib(n) is stored at position (0,0) in the result matrix
+    return result[0][0]
 
