@@ -15,9 +15,6 @@ def fib(n):
     if n < 0:
         # Use the identity: fib(-n) = (-1)^(n+1) * fib(n)
         return (-1) ** (n + 1) * fib(-n) if n % 2 == 0 else -fib(-n)
-
-    # Use fast doubling method for large n
-    # Returns [F(n), F(n+1)]
     def fibonacci_pair(n):
         if n == 0:
             return (0, 1)
@@ -36,8 +33,6 @@ def fib(n):
             return (d, c + d)
 
     return fibonacci_pair(n)[0]
-
-
 def fib(n):
     """
     Calculate the nth Fibonacci number where:
