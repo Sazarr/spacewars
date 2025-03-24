@@ -18,7 +18,6 @@ def fib(n):
     def fibonacci_pair(n):
         if n == 0:
             return (0, 1)
-
         # Calculate [F(n//2), F(n//2 + 1)]
         a, b = fibonacci_pair(n // 2)
 
