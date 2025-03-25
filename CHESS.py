@@ -7,8 +7,6 @@ def knight(start, end):
     def algebraic_to_numeric(pos):
         return ord(pos[0]) - ord('a'), int(pos[1]) - 1
 
-
-
     # All possible knight moves
     moves = [(2, 1), (2, -1), (-2, 1), (-2, -1),
              (1, 2), (1, -2), (-1, 2), (-1, -2)]
