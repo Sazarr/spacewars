@@ -46,7 +46,6 @@ def get_hand_rank(hand):
 
     return ("high card", sorted_ranks)
 
-
 def hand(hole_cards, community_cards):
     """ Determines the best possible hand from 7 available cards. """
     cards = hole_cards + community_cards
@@ -54,9 +53,7 @@ def hand(hole_cards, community_cards):
 
     # Find the best hand out of all possible 5-card hands
     best_hand = max(map(get_hand_rank, possible_hands), key=lambda h: (hand_strength[h[0]], h[1]))
-
     return best_hand
-
 
 # Define strength of hand types
 hand_strength = {
