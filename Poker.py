@@ -45,7 +45,6 @@ def get_hand_rank(hand):
         return ("pair", sorted_ranks)
 
     return ("high card", sorted_ranks)
-
 def hand(hole_cards, community_cards):
     """ Determines the best possible hand from 7 available cards. """
     cards = hole_cards + community_cards
