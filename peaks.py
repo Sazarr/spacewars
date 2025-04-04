@@ -19,8 +19,6 @@ def pick_peaks(arr):
     return peaks
 
 
-
-
 def pick_peaks(arr):
     pos = []
     prob_peak = False
