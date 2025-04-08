@@ -18,10 +18,6 @@ def listPosition(word):
 from math import factorial
 from collections import Counter
 
-
-
-
-
 def list_position(word):
     letter_counts = Counter(word)
 
