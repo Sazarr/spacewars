@@ -13,8 +13,6 @@ def listPosition(word):
         s = s * (i + 1) // c[x]
     return r
 
-
-
 from math import factorial
 from collections import Counter
 
