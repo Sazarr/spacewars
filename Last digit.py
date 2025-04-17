@@ -19,6 +19,8 @@ def last_digit(a, b):
         9: [9, 1]
     }
 
+
+
     # Get the cycle of the last digit
     cycle = cycles[last_digit]
     cycle_length = len(cycle)
