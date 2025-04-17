@@ -29,6 +29,10 @@ def last_digit(a, b):
     # Return the last digit from the cycle
     return cycle[index]
 
+
+
+
+
 digits = {
     0:[0,0,0,0],
     1:[1,1,1,1],
