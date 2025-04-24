@@ -20,6 +20,8 @@ def knight(start, end):
     visited = set()
     visited.add((start_x, start_y))
 
+
+
     while queue:
         x, y, moves_count = queue.popleft()
 
