@@ -30,6 +30,8 @@ def knight(start, end):
             if (nx, ny) == (end_x, end_y):
                 return moves_count + 1
 
+
+
             # Stay within the board and avoid revisiting positions
             if 0 <= nx < 8 and 0 <= ny < 8 and (nx, ny) not in visited:
                 queue.append((nx, ny, moves_count + 1))
